@@ -16,10 +16,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:src="@drawable/logo"
         android:background="@drawable/list_item_card"
+        android:contentDescription="@null"
         android:padding="16dp"
-        />
+        android:src="@drawable/logo" />
 
     <RelativeLayout
         android:id="@+id/card_view"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/image_profile"
             android:fontFamily="sans-serif-smallcaps"
             android:text="SRMV CAS"

@@ -43,15 +43,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/profile_name"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
         android:fontFamily="@font/nunito_semibold"
+        android:layout_centerHorizontal="true"
         android:text="@string/profile_desc"
+        android:textAlignment="center"
         android:textColor="#554949"
-        android:textSize="13sp"
 
-        android:transitionName="descTransistion"
-        />
+        android:textSize="13sp"
+        android:transitionName="descTransistion" />
 
 </RelativeLayout>
