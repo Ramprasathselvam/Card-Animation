@@ -3,9 +3,13 @@ package com.example.helloworld;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -43,7 +47,6 @@ public class TakeImageActivity extends AppCompatActivity {
     private ImageView imageView;
 
     Bitmap bitmap;
-    String URL ="http://192.168.1.101/upload";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,41 +95,26 @@ public class TakeImageActivity extends AppCompatActivity {
                 progressDialog.setMessage("Uploading, please wait...");
                 progressDialog.show();
 
-                //converting image to ByteArray to base64 string
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                byte[] imageBytes = baos.toByteArray();  // Byte Array
-                final String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);  //base64 String
+                Intent intent = new Intent(getApplicationContext(), TakeImageActivity.class);
+                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-                //sending image to server
-                StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>(){
-                    @Override
-                    public void onResponse(String s) {
-                        progressDialog.dismiss();
-                        if(s.equals("true")){
-                            Toast.makeText(TakeImageActivity.this, "Uploaded Successful", Toast.LENGTH_LONG).show();
-                        }
-                        else{
-                            Toast.makeText(TakeImageActivity.this, "Some error occurred!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(TakeImageActivity.this, "Some error occurred -> "+volleyError, Toast.LENGTH_LONG).show();;
-                    }
-                }) {
-                    //adding parameters to send
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> parameters = new HashMap<String, String>();
-                        parameters.put("image", imageString);
-                        return parameters;
-                    }
-                };
+                NotificationCompat.Builder b = new NotificationCompat.Builder(getApplicationContext());
 
-                RequestQueue rQueue = Volley.newRequestQueue(TakeImageActivity.this);
-                rQueue.add(request);
+                b.setAutoCancel(true)
+                        .setDefaults(Notification.DEFAULT_ALL)
+                        .setWhen(System.currentTimeMillis())
+                        .setSmallIcon(R.drawable.logo)
+                        .setTicker("Hearty365")
+                        .setContentTitle("Default notification")
+                        .setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+                        .setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_SOUND)
+                        .setContentIntent(contentIntent)
+                        .setContentInfo("Info");
+
+
+                NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+                notificationManager.notify(1, b.build());
+
             }
         });
 

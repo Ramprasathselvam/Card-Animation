@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UIControllersActivity"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="hello world"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="50dp"
+        android:layout_margin="10dp"/>
+
+    <EditText
+        android:id="@+id/edittext_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button"
+        android:layout_below="@+id/textView1"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:text="Edit Text"
+        android:inputType="text" />
+
+    <CheckBox
+        android:id="@+id/checkBox_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accept Treams and Condition.."
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="On"
+        android:id="@+id/toggleButton"
+        android:checked="true"
+        android:layout_margin="10dp"
+        />
+
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        >
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JAVA"
+            android:id="@+id/radioButton"
+            android:textSize="25dp"
+            android:textColor="@android:color/holo_red_light"
+            android:checked="false"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ANDROID"
+            android:id="@+id/radioButton2"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HTML"
+            android:id="@+id/radioButton3"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="@android:color/holo_red_dark" />
+
+    </RadioGroup>
+
+
+</LinearLayout>
