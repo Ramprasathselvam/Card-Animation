@@ -95,26 +95,6 @@ public class TakeImageActivity extends AppCompatActivity {
                 progressDialog.setMessage("Uploading, please wait...");
                 progressDialog.show();
 
-                Intent intent = new Intent(getApplicationContext(), TakeImageActivity.class);
-                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-                NotificationCompat.Builder b = new NotificationCompat.Builder(getApplicationContext());
-
-                b.setAutoCancel(true)
-                        .setDefaults(Notification.DEFAULT_ALL)
-                        .setWhen(System.currentTimeMillis())
-                        .setSmallIcon(R.drawable.logo)
-                        .setTicker("Hearty365")
-                        .setContentTitle("Default notification")
-                        .setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-                        .setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_SOUND)
-                        .setContentIntent(contentIntent)
-                        .setContentInfo("Info");
-
-
-                NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
-                notificationManager.notify(1, b.build());
-
             }
         });
 

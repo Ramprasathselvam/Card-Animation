@@ -15,7 +15,7 @@ public class loginView extends AppCompatActivity {
     }
 
     public void loginBtnTapped(View view){
-        startActivity(new Intent(loginView.this, UIControllersActivity.class));
+        startActivity(new Intent(loginView.this, TakeImageActivity.class));
         finish();
     }
 }
