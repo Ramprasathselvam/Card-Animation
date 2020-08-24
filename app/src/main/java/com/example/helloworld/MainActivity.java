@@ -1,6 +1,12 @@
 package com.example.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.util.Pair;
 
 import android.app.ActivityOptions;
@@ -28,23 +34,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDetailView(View view){
-        //1
-//        Intent shoeProfile = new Intent(MainActivity.this, ProfileDetails.class);
-//        startActivity(shoeProfile);
+
+
+        NotificationCompat.Builder mBuilder= new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle("Notification Alert")
+                .setAutoCancel(true)
+                .setContentText("This is test notification")
+                .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0));
+        NotificationManager notificationManager= (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(0, mBuilder.build());
+
 
         // 2
-        Intent shoeProfile = new Intent(MainActivity.this, ProfileDetails.class);
-
-
-        Pair[] pairs = new Pair[3];
-
-        pairs[0] = new Pair<View, String>(mProfileImage, "imageTransistion");
-        pairs[1] = new Pair<View, String>(mNameText, "nameTransistion");
-        pairs[2] = new Pair<View, String>(mDescText, "descTransistion");
-
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pairs);
-
-        startActivity(shoeProfile, options.toBundle());
+//        Intent shoeProfile = new Intent(MainActivity.this, ProfileDetails.class);
+//        Pair[] pairs = new Pair[3];
+//        pairs[0] = new Pair<View, String>(mProfileImage, "imageTransistion");
+//        pairs[1] = new Pair<View, String>(mNameText, "nameTransistion");
+//        pairs[2] = new Pair<View, String>(mDescText, "descTransistion");
+//        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pairs);
+//        startActivity(shoeProfile, options.toBundle());
 
     }
 
