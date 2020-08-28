@@ -15,7 +15,8 @@ public class loginView extends AppCompatActivity {
     }
 
     public void loginBtnTapped(View view){
-        startActivity(new Intent(loginView.this, TakeImageActivity.class));
+//        startActivity(new Intent(loginView.this, VideoActivity.class));
+        startActivity(new Intent(loginView.this, ExoPlayerActivity.class));
         finish();
     }
 }
