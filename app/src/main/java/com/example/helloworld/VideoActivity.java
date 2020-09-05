@@ -28,6 +28,9 @@ public class VideoActivity extends AppCompatActivity implements SurfaceHolder.Ca
         setContentView(R.layout.activity_video);
 
         Button buttonPlayVideo = (Button)findViewById(R.id.playvideoplayer);
+        Button buttonPauseVideo = (Button)findViewById(R.id.pausevideoplayer);
+        Button buttonStopeVideo = (Button)findViewById(R.id.stopevideoplayer);
+        Button buttonResumeVideo = (Button)findViewById(R.id.playvideoplayer);
 
         getWindow().setFormat(PixelFormat.UNKNOWN);
 
@@ -46,6 +49,17 @@ public class VideoActivity extends AppCompatActivity implements SurfaceHolder.Ca
                 mVideoView.start();
             }
         });
+
+        buttonPauseVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                VideoView mVideoView = (VideoView)findViewById(R.id.videoview);
+                mVideoView.pause();
+                mVideoView.resume();
+            }
+        });
+
 
     }
 

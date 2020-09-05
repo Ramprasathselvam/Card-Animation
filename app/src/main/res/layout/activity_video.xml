@@ -16,6 +16,27 @@
         android:text="PLAY Video"
         />
 
+    <Button
+        android:id="@+id/pausevideoplayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="pause Video"
+        />
+
+    <Button
+        android:id="@+id/stopevideoplayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="stop Video"
+        />
+
+    <Button
+        android:id="@+id/Resumeevideoplayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Resume Video"
+        />
+
 
     <VideoView
         android:id="@+id/videoview"
